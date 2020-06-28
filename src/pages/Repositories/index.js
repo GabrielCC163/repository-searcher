@@ -14,7 +14,7 @@ export default function Repositories() {
 		} else {
 			history.push('/');
 		}
-	}, []);
+	});
 
 	return (
 		<S.Container>
