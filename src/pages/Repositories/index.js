@@ -6,15 +6,18 @@ export default function Repositories() {
 	const history = useHistory();
 	const [ repositories, setRepositories ] = useState([]);
 
-	useEffect(() => {
-		const repositoriesName = JSON.parse(localStorage.getItem('repositoriesName'));
-		if (repositoriesName !== null) {
-			setRepositories(repositoriesName);
-			localStorage.clear();
-		} else {
-			history.push('/');
-		}
-	});
+	useEffect(
+		() => {
+			const repositoriesName = JSON.parse(localStorage.getItem('repositoriesName'));
+			if (repositoriesName !== null) {
+				setRepositories(repositoriesName);
+				localStorage.clear();
+			} else {
+				history.push('/');
+			}
+		},
+		[ history ]
+	);
 
 	return (
 		<S.Container>
